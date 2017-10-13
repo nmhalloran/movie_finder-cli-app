@@ -1,9 +1,45 @@
 class MovieFinder::CLI
-  attr_accessor :zip_code
-  @zip_code = 02132
   def call
-    MovieFinder::Scraper.zip_code_scraper(@zip_code)
-    puts "Hello movie lover!"
+    MovieFinder::Scraper.theater_scraper
+    puts "Hello movie lover! Welcome to the Dedham Community Theater!"
+    user_input
+  end
+
+  def intro
+    puts "Today's movies are:"
+    puts "1.) Lucky, a Drama starring Harry Dean Stanton"
+    puts "2.) Victoria and Abdul, a Drama starring Dame Judi Dench"
+  end
+
+  def user_input
+    intro
+    input = ""
+    while input != "exit"
+      puts "Please press 1 or 2 or 'coming soon' to get more info"
+      puts "Type 'start over' to see options or 'exit' to leave program: "
+      input = gets.strip
+
+      if input == "1"
+        puts "Summary of Lucky"
+        puts "Rating"
+        puts "Showtimes"
+      elsif input == "2"
+        puts "Summary of Victoria and Abdul"
+        puts "Rating"
+        puts "Showtimes"
+      elsif input.downcase == "coming soon"
+        puts "Summary of Goodby to Christopher Robin"
+        puts "Rating"
+        puts "Starting Date"
+      elsif input.downcase == "start over"
+        intro
+      elsif input.downcase == "exit"
+        puts "Thank you for visiting the Dedham Community Theater!"
+      else
+        puts "Not an option. Please type 1, 2, or coming soon:"
+      end
+    end
+
   end
 
 end
