@@ -1,3 +1,6 @@
+require "nokogiri"
+require "pry"
+
 require "movie_finder/version"
 
 require "movie_finder/cli"

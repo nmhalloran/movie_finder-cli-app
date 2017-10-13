@@ -1,3 +1,3 @@
-class MovieFinder::theaters
+class MovieFinder::Theaters
 
 end

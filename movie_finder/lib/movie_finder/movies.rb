@@ -1,3 +1,3 @@
-class MovieFinder::movies
+class MovieFinder::Movies
 
 end
