@@ -1,19 +1,21 @@
 class MovieFinder::Movies
   attr_accessor :title, :starring, :type, :rating, :summary
 
-  def self.make_movie_info
+  def self.make_features
     movies = MovieFinder::Scraper.theater_scraper
+    @movie_array = []
 
     movies.css("div.show").each_with_index do |movie, i|
 
-      movie_1 = self.new
-      movie_1.title = movie.css('h2').text
-      movie_1.starring = movie.css('h3 + p').text.split(", ")[0] + " and " + movie.css('h3 + p').text.split(", ")[1]
-      movie_1.type = movie.css("h2 + p").text.split(" ")[0]
-      movie_1.rating = movie.css("h2 + p").text.split(" ")[2]
-      movie_1.summary = movie.css("p.cat + p").text
-      binding.pry
+      show = self.new
+      show.title = movie.css('h2').text
+      show.starring = movie.css('h3 + p').text.split(", ")[0]
+      show.type = movie.css("h2 + p").text.split(" ")[0]
+      show.rating = movie.css("h2 + p").text.split(" ")[2]
+      show.summary = movie.css("p.cat + p").text
+      @movie_array << show unless movie.css('h2').text == ""
     end
+    @movie_array
   end
 
 end

@@ -1,13 +1,13 @@
 class MovieFinder::CLI
   def call
-    MovieFinder::Scraper.theater_scraper
+    @movies_array = MovieFinder::Movies.make_features
     puts "Hello movie lover! Welcome to the Dedham Community Theater!"
     user_input
   end
 
   def intro
     puts "Today's movies are:"
-    puts "1.) Lucky, a Drama starring Harry Dean Stanton"
+    puts "1.) #{@movies_array[0].title}, a Drama starring Harry Dean Stanton"
     puts "2.) Victoria and Abdul, a Drama starring Dame Judi Dench"
   end
 
@@ -20,7 +20,7 @@ class MovieFinder::CLI
       input = gets.strip
 
       if input == "1"
-        puts "Summary of Lucky"
+        puts "Summary: m"
         puts "Rating"
         puts "Showtimes"
       elsif input == "2"
