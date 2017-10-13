@@ -1,5 +1,6 @@
 require "nokogiri"
 require "pry"
+require "open-uri"
 
 require "movie_finder/version"
 
