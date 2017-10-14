@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'nmhalloran@hotmail.com'"]
 
   spec.summary       = "This gem allows the user to scrape data from Fandango's website and find movie locations and times"
-  spec.homepage      = "https://github.com/nmhalloran/movie_finder-cli-app"
+  spec.homepage      = ""
   spec.license       = "MIT"
 
 

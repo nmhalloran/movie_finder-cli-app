@@ -1,8 +1,8 @@
 # MovieFinder
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/movie_finder`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Welcome to the movie_finder gem! This gem scrapes the website of the Dedham Community Theatre, a local arthouse theater in Dedham, MA
+This gem shows the current features, with options to see a summary and showtimes. Also gives an option to see
+the upcoming feature with a summary and release date.
 
 ## Installation
 
@@ -22,7 +22,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+This program is executable from the CLI after installing the gem by calling 'MovieFinder::CLI.new.call'. It will excute the program
+and output all of the movie data.
 
 ## Development
 
