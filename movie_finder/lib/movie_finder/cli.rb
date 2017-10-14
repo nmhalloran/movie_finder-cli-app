@@ -1,6 +1,7 @@
 class MovieFinder::CLI
   def call
-    @movies_array = MovieFinder::Movies.make_features
+    @movies_array = MovieFinder::Movies.create_features
+    @movies_array << MovieFinder::Movies.create_ca
     puts "Hello movie lover! Welcome to the Dedham Community Theater!"
     user_input
   end
