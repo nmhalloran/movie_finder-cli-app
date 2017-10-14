@@ -9,8 +9,8 @@ class MovieFinder::CLI
   def intro
     puts "Today's movies are:"
     @features.each do |feature|
-      puts "\t1.) #{feature.title}, a #{feature.type}"
-      puts "\tStarring: #{feature.starring}"
+      puts "\t1.) #{feature.title}: #{feature.type}"
+      puts "\t    Starring: #{feature.starring}"
     end
   end
 
@@ -24,21 +24,25 @@ class MovieFinder::CLI
 
       if input == "1"
         puts "Summary of #{@features[0].title}:"
-        puts "#{@features[0].summary}"
-        puts "Rating: #{@features[0].rating}"
-        puts "Showtimes: #{@features[0].times}"
+        puts "\t#{@features[0].summary}"
+        puts "\tRATING: #{@features[0].rating}"
+        puts "\tSHOWTIMES: #{@features[0].times}"
       elsif input == "2"
         puts "Summary of #{@features[1].title}:"
-        puts "#{@features[1].summary}"
-        puts "Rating: #{@features[1].rating}"
-        puts "Showtimes: #{@features[1].times}"
+        puts "\t#{@features[1].summary}"
+        puts "\tRATING: #{@features[1].rating}"
+        puts "\tSHOWTIMES: #{@features[1].times}"
       elsif input.downcase == "coming soon"
-        puts "\t1.) #{@coming_attractions.title}, a #{@coming_attractions.type}"
-        puts "\tStarring: #{@coming_attractions.starring}"
+        puts "COMING ATTRACTION"
+        puts "-----------------"
+        puts ""
+        puts "#{@coming_attractions.title}, a #{@coming_attractions.type}"
+        puts "    Starring: #{@coming_attractions.starring}"
         puts "Summary of #{@coming_attractions.title}:"
-        puts "#{@coming_attractions.summary}"
-        puts "Rating: #{@coming_attractions.rating}"
-        puts "Showtimes: #{@coming_attractions.times}"
+        puts "\t#{@coming_attractions.summary}"
+        puts "RATING: #{@coming_attractions.rating}"
+        puts "RELEASE DATE: #{@coming_attractions.release_date}"
+
       elsif input.downcase == "start over"
         intro
       elsif input.downcase == "exit"
