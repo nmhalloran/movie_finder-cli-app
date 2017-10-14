@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["'nmhalloran@hotmail.com'"]
 
   spec.summary       = "This gem allows the user to scrape data from Fandango's website and find movie locations and times"
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/nmhalloran/movie_finder-cli-app"
   spec.license       = "MIT"
 
 
@@ -23,12 +23,9 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.15"
   spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "pry"
+  spec.add_development_dependency "pry", '~> 0'
 
   spec.add_dependency "nokogiri"
-  spec.add_dependency "httparty"
-
-
-
+  spec.add_dependency "httparty", '~> 0'
 
 end
