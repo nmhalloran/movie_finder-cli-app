@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["'Nicholas Halloran'"]
   spec.email         = ["'nmhalloran@hotmail.com'"]
 
-  spec.summary       = "This gem allows the user to scrape data from Fandango's website and find movie locations and times"
+  spec.summary       = "This gem allows the user to scrape data from the Dedham Community Theatre website, and pull movie information and showtimes."
   spec.homepage      = ""
   spec.license       = "MIT"
 
