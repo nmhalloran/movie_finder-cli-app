@@ -14,8 +14,8 @@ class MovieFinder::Movies
       show.rating = movie.css("h2 + p").text.split(" ")[2]
       show.summary = movie.css("p.cat +p").text
       show.summary = show.summary.split
-      (16..160).step(16) do |n|
-          show.summary.insert(n, "\n\t\b") unless n >= show.summary.length
+      (16..show.summary.size).step(16) do |n|
+          show.summary.insert(n, "\n\t\b") unless n >= show.summary.size
       end
       show.summary = show.summary.join(" ")
 

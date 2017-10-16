@@ -8,8 +8,8 @@ class MovieFinder::CLI
 
   def intro
     puts "Today's movies are:"
-    @features.each do |feature|
-      puts "\t1.) #{feature.title}: #{feature.type}"
+    @features.each_with_index do |feature, i|
+      puts "\t#{i+1}.) #{feature.title}: #{feature.type}"
       puts "\t    Starring: #{feature.starring}"
     end
   end
@@ -36,8 +36,8 @@ class MovieFinder::CLI
         puts "COMING ATTRACTION"
         puts "-----------------"
         puts ""
-        puts "#{@coming_attractions.title}, a #{@coming_attractions.type}"
-        puts "    Starring: #{@coming_attractions.starring}"
+        puts "Title: #{@coming_attractions.title}, a #{@coming_attractions.type}"
+        puts "Starring: #{@coming_attractions.starring}"
         puts "Summary of #{@coming_attractions.title}:"
         puts "\t#{@coming_attractions.summary}"
         puts "RATING: #{@coming_attractions.rating}"
