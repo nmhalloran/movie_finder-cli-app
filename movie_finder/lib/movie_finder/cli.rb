@@ -33,9 +33,10 @@ class MovieFinder::CLI
         puts "\tRATING: #{@features[1].rating}"
         puts "\tSHOWTIMES: #{@features[1].times}"
       elsif input.downcase == "coming soon"
-        puts "COMING ATTRACTION"
+        puts "COMING ATTRACTIONS"
         puts "-----------------"
         puts ""
+        @coming_attractions.each_with_index
         puts "Title: #{@coming_attractions.title}, a #{@coming_attractions.type}"
         puts "Starring: #{@coming_attractions.starring}"
         puts "Summary of #{@coming_attractions.title}:"

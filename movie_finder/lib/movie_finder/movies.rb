@@ -27,20 +27,27 @@ class MovieFinder::Movies
   end
 
   def self.create_ca
-    ca = MovieFinder::Scraper.ca_scraper
-    show = self.new
-    show.title = ca.css('h1').text.split.map(&:capitalize).join(' ')
-    show.starring = ca.css('h3 + p').first.text
-    show.type = ca.css("h1 + p").text.capitalize.split(" ")[0]
-    show.rating = ca.css("h1 + p").text.split(" ")[2]
-    show.summary = ca.css("br + p").text
-    show.summary = show.summary.split
-    (16..160).step(16) do |n|
-        show.summary.insert(n, "\n\t\b") unless n >= show.summary.length
+    coming_attractions = MovieFinder::Scraper.ca_scraper
+    @ca_array = []
+    coming_attractions.each do |ca|
+      show = self.new
+      show.title = ca.css('h1').text.split.map(&:capitalize).join(' ')
+      show.starring = ca.css('h3 + p').first.text
+      show.type = ca.css("h1 + p").text.capitalize.split(" ")[0]
+      show.rating = ca.css("h1 + p").text.split(" ")[2]
+      show.summary = ca.css("br + p").text
+      show.summary = show.summary.split
+      (16..160).step(16) do |n|
+          show.summary.insert(n, "\n\t\b") unless n >= show.summary.length
+      end
+      show.summary = show.summary.join(" ")
+      if ca.css('h3')[2].text == "RELEASE DATE"
+        show.release_date = ca.css('h3 + p')[2].text
+      else
+        show.release.date = "Release Date Coming Soon"
+      end
+      @ca_array << show unless ca.css('h1').text = ""
     end
-    show.summary = show.summary.join(" ")
-    show.release_date = ca.css('h3 + p')[2].text
-    show
   end
 
 end

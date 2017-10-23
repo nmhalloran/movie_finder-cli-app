@@ -8,8 +8,11 @@ class MovieFinder::Scraper
 
   def self.ca_scraper
     data = self.feature_scraper
-    ca_html = data.css("div.show p.soon + a").attribute('href').value
-    ca_data = Nokogiri::HTML(open(ca_html))
+    ca_html = data.css("div.show p.soon + a")
+    ca_data = ca_html.collect do |html|
+      new_url = html[attributes = 'href']
+      Nokogiri::HTML(open(new_url))
+    end
   end
 
 end
