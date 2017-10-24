@@ -36,13 +36,18 @@ class MovieFinder::CLI
         puts "COMING ATTRACTIONS"
         puts "-----------------"
         puts ""
-        @coming_attractions.each_with_index
-        puts "Title: #{@coming_attractions.title}, a #{@coming_attractions.type}"
-        puts "Starring: #{@coming_attractions.starring}"
-        puts "Summary of #{@coming_attractions.title}:"
-        puts "\t#{@coming_attractions.summary}"
-        puts "RATING: #{@coming_attractions.rating}"
-        puts "RELEASE DATE: #{@coming_attractions.release_date}"
+        @coming_attractions.each.with_index(1) do |ca, i|
+          puts "Title: #{ca.title}, a #{ca.type}"
+          puts "Starring: #{ca.starring}"
+          puts "Summary of #{ca.title}:"
+          puts "\t#{ca.summary}"
+          puts "RATING: #{ca.rating}"
+          puts "RELEASE DATE: #{ca.release_date}"
+          if @coming_attractions.size > i
+            puts "Please hit enter to see the next coming attraction!"
+            gets
+          end
+        end
 
       elsif input.downcase == "start over"
         intro
