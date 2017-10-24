@@ -38,13 +38,16 @@ class MovieFinder::Movies
       show.summary = ca.css("br + p").text
       show.summary = show.summary.split
       (16..show.summary.size).step(16) do |n|
-          show.summary.insert(n, "\n\t\b") unless n >= show.summary.length
+          show.summary.insert(n, "\n\t") unless n >= show.summary.length
       end
       show.summary = show.summary.join(" ")
       if ca.css('h3')[2].text == "RELEASE DATE"
         show.release_date = ca.css('h3 + p')[2].text
       else
         show.release_date = "Release Date Coming Soon"
+      end
+      if ca.css('div.shows p strong').text
+        show.times = ca.css('div.shows p strong').text
       end
       @ca_array << show unless ca.css('h1').text == ""
     end

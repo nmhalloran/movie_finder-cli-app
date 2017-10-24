@@ -39,10 +39,12 @@ class MovieFinder::CLI
         @coming_attractions.each.with_index(1) do |ca, i|
           puts "Title: #{ca.title}, a #{ca.type}"
           puts "Starring: #{ca.starring}"
-          puts "Summary of #{ca.title}:"
-          puts "\t#{ca.summary}"
+          puts "Summary: #{ca.summary}"
           puts "RATING: #{ca.rating}"
           puts "RELEASE DATE: #{ca.release_date}"
+          if ca.times
+            puts "SHOWTIMES: #{ca.times}"
+          end
           if @coming_attractions.size > i
             puts "Please hit enter to see the next coming attraction!"
             gets
