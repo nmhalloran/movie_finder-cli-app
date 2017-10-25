@@ -3,6 +3,7 @@ class MovieFinder::CLI
     @features = MovieFinder::Movies.create_features
     @coming_attractions = MovieFinder::Movies.create_ca
     puts "Hello movie lover! Welcome to the Dedham Community Theater!"
+    intro
     user_input
   end
 
@@ -15,23 +16,18 @@ class MovieFinder::CLI
   end
 
   def user_input
-    intro
     input = ""
     while input != "exit"
       puts "Please press 1 or 2 or 'coming soon' to get more info"
       puts "Type 'start over' to see options or 'exit' to leave program: "
       input = gets.strip
 
-      if input == "1"
-        puts "Summary of #{@features[0].title}:"
-        puts "\t#{@features[0].summary}"
-        puts "\tRATING: #{@features[0].rating}"
-        puts "\tSHOWTIMES: #{@features[0].times}"
-      elsif input == "2"
-        puts "Summary of #{@features[1].title}:"
-        puts "\t#{@features[1].summary}"
-        puts "\tRATING: #{@features[1].rating}"
-        puts "\tSHOWTIMES: #{@features[1].times}"
+      if input.to_i.between?(1, @features.size)
+        feature = @features[input.to_i - 1]
+        puts "Summary of #{feature.title}:"
+        puts "\t#{feature.summary}"
+        puts "\tRATING: #{feature.rating}"
+        puts "\tSHOWTIMES: #{feature.times}"
       elsif input.downcase == "coming soon"
         puts "COMING ATTRACTIONS"
         puts "-----------------"
